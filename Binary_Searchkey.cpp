@@ -10,11 +10,17 @@ int BinarySearch(int arr[],int n,int key)
     while(start <= end)
     {
         //2nd Step
-        mid = start + (end - mid)/2;
+        mid = start + (end - start)/2;
+        if(arr[mid] == key)
+        {
+            return mid;
+        }
+        //Go to Right Part
         if(key > arr[mid])
         {
             start = mid + 1;
         }
+        //Go to Left Part
         else
         {
             end = mid - 1;
@@ -27,16 +33,9 @@ int BinarySearch(int arr[],int n,int key)
 int main()
 {
     int arr[5] = {3,5,9,13,27};
-    int key = 13;
+    int key = 15;
     int index = BinarySearch(arr,5,key);
-    if(index = -1)
-    {
-        cout<<"Key is not Available in Array"<<endl;
-    }
-    else
-    {
-        cout<<"Key is Available in Array at index "<<endl;
-    }
+    cout<<"Index of 13 is "<< index <<endl;
 
     return 0;
 }
